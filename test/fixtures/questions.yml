@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  query: MyString
+  is_anonymous: false
+  user_id: 
+
+two:
+  query: MyString
+  is_anonymous: false
+  user_id: 
