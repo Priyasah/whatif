@@ -17,7 +17,7 @@
       <tr>
         <td><%= question.query %></td>
         <% if !question.is_anonymous %>
-        <td><%= User.where(:id => question.user.id).email  %></td>
+        <td><%= question.user.email.slice(0..-11)  %></td>
         <% else %>
         <td> anonymous </td>
         <% end %>

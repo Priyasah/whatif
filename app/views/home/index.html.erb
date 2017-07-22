@@ -1,4 +1,50 @@
-<h1>Whatif</h1>
-<p>Here you can ask anything</p>
 
-<<%= link_to "ask question", new_question_path(@question) %>
+<header>
+<%= form_for @question, remote: true do |f| %>
+
+
+<%= f.text_field:query %> 
+<div class="actions">
+<%= f.submit  id: 'create_question_submit' %>
+
+</div>
+<% end %>
+
+
+</header>
+
+
+
+<main>
+
+
+<aside>
+
+</aside>
+
+<section>
+
+<div class="createquestion">
+
+<%= form_for @question, remote: true do |f| %>
+
+
+<%= f.text_area :query %>  <br>
+<div class="actions">
+<%= f.submit  id: 'create_question_submit' %>
+
+</div>
+
+<% end %>
+
+
+
+<div id="questions">
+
+ <% current_user.feed.each do |question|  %>
+
+<%= render 'question', question: question%>
+	
+	<% end %>
+
+</div>

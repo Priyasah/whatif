@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :answers
   resources :questions
   devise_for :users
+
+
+  get '/profile' => 'home#profile'
+  post '/upload_image' => 'home#upload_image'
  root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

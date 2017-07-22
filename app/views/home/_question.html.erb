@@ -1,0 +1,29 @@
+<div class="question">
+	<div class="left">
+		<div class="userImage">
+			
+		<% if question.user.profile_picture %>
+	<img src="/uploads/<%=question.user.profile_picture %>">
+	<% end %>
+
+		</div>
+	</div>
+
+
+	<div class="right">
+		<div class="userDetail">
+			<%= question.user.email.slice(0..-11) %>
+		</div>
+		<div class="content">
+			<%= question.content %>
+		</div>
+		<div class="actions">
+		</div>
+	</div>
+</div>
+
+
+		</div>
+	</div>
+</div>
+
