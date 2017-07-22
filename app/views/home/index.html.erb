@@ -1,17 +1,56 @@
 
+
+       
 <header>
-<%= form_for @question, remote: true do |f| %>
+<div class="header_contents">
+<div class="logo">
+<a href="/">
+<%= image_tag 'image.png' %>
+</a></div>
 
+<div class="search">
+ <%= form_for @question, remote: true do |f| %>
 
-<%= f.text_field:query %> 
+<%= f.text_field:query, class: 'form-control', autofocus: true, placeholder: 'Ask or search on Quora' %>
+</div> 
 <div class="actions">
-<%= f.submit  id: 'create_question_submit' %>
+<%= f.submit  id: 'create_question_submit' 'name', :class => 'button' , :value => 'Ask Question' %>
 
 </div>
 <% end %>
 
 
+<div class="option">
+<nav>
+<ul>
+<li>Read</li>
+<li> answer </li>
+<li>options</li>
+<li> profile
+	<ul>
+	<li> Dashboard</li>
+	<li><div class="profile">
+
+ 	<%= link_to "Sign Out",destroy_user_session_path,method: :delete %>
+
+	</div></li>
+	</ul>
+</li>
+</ul>
+</nav>
+</div>
+
+</div>
+
+
 </header>
+
+
+
+
+
+
+
 
 
 
@@ -37,14 +76,16 @@
 
 <% end %>
 
-
+</div>
 
 <div id="questions">
 
- <% current_user.feed.each do |question|  %>
+ <% Question.all.each do |question|  %>
 
 <%= render 'question', question: question%>
 	
 	<% end %>
 
 </div>
+
+</section>

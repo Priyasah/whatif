@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
     def feed
   	
-  	users = User.all
+  	users << id
   	Question.where(user_id: users).order(created_at: :desc)
+byebug  
   end
 end
