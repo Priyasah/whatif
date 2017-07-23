@@ -21,8 +21,9 @@
   </div>
  
   <div class="field">
+  
     
-    <%= f.hidden_field :question_id , value: ques_id %>
+    <%= f.hidden_field :question_id , :value => params[:question_id]%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,29 +1,62 @@
 <div class="question">
-	<div class="left">
-		<div class="userImage">
-			
-		<% if question.user.profile_picture %>
-	<img src="/uploads/<%=question.user.profile_picture %>">
-	<% end %>
+	<div class="top">
+		
+	
 
-		</div>
-	</div>
-
-
-	<div class="right">
 		<div class="userDetail">
-			<%= question.user.email.slice(0..-11) %>
+			
+				<% if question.user.profile_picture %>
+				<img src="/uploads/<%=question.user.profile_picture %>">
+				<% else %>
+				<img src="default.png">
+				<% end %>
+				<% if question.is_anonymous %>
+					anonymous
+				<% else %>
+				<%= question.user.email.slice(0..-11) %>
+				<% end %>
 		</div>
-		<div class="content">
+		<div class="Q_content">
 			<%= question.query %>
 		</div>
+		</div>
+
+
+	<div class="middle">
+		
+		
+		<div class="A_content">
+			
+			<% answers = Answer.where(question_id: question.id) %>
+			<% answers.each do |answer| %>
+			<div class="userDetail">
+			
+				<% if answer.user.profile_picture %>
+				<img src="/uploads/<%=question.user.profile_picture %>">
+				<% else %>
+				<img src="default.png">
+				<% end %>
+				<% if answer.is_anonymous %>
+					anonymous
+				<% else %>
+				<%= answer.user.email.slice(0..-11) %>
+				<% end %>
+		</div>
+		<%= answer.content %>
+		<% end %>
+
+		</div>
+
+	</div>
+
+
+	<div class="bottom">
 		<div class="actions">
+		<%= link_to "Answer", {:controller => "answers", :action => "new", :question_id => question.id }%>
 		</div>
 	</div>
-</div>
 
 
-		</div>
-	</div>
+
 </div>
 

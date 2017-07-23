@@ -82,10 +82,95 @@ header {
                                     ul:hover{
                                     display:block;
                                     }
+                                    }
                                 }
                             }
                         }
-                }
+                
     }
+}
+
+
+
+
+main
+{
+
+    padding-top:50px;
+    aside
+    {}
+    section
+    {
+
+            margin-left:280px;
+            margin-right:350px;
+            div.create_question
+            {
+                    border:1px solid grey;
+                    padding:5px;
+                    div.profile_pic
+                    {
+                            img{
+                                height:20px;
+                                width:20px;
+                                border-radius:100%;
+                            }
+                    }
+                    a.link
+                    {
+                        text_decoration:none;
+                    }
+            }
+
+
+
+          
+        
+            #questions
+            {
+                div.question
+                {
+                    margin-top:5px;
+                    border:1px solid grey;
+                    div.top
+                    {
+                        div.userDetail
+                        {
+                            img
+                            {
+                             height:20px;
+                                width:20px;
+                                border-radius:100%;
+                            }
+                        }
+                    }
+
+
+                    div.middle
+                    {
+                        div.A_content
+                        {
+                                border-top: 1px solid grey;
+                                div.userDetail
+                                {
+                                    img
+                                    {
+                                     height:20px;
+                                        width:20px;
+                                        border-radius:100%;
+                                    }
+                                 }   
+                        }
+                    }
+                    
+                }
+            }
+        
+
+        
+    }
+    
+    div.right{}
+    
 }
 

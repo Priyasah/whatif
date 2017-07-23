@@ -46,46 +46,49 @@
 </header>
 
 
-
-
-
-
-
-
-
-
 <main>
-
-
-<aside>
-
-</aside>
-
-<section>
-
-<div class="createquestion">
-
-<%= form_for @question, remote: true do |f| %>
-
-
-<%= f.text_area :query %>  <br>
-<div class="actions">
-<%= f.submit  id: 'create_question_submit' %>
-
-</div>
-
-<% end %>
-
-</div>
-
-<div id="questions">
-
- <% Question.all.each do |question|  %>
-
-<%= render 'question', question: question%>
+	<aside></aside>
+	<section>
 	
-	<% end %>
+		<div  class="create_question">
+			<div class="profile_pic">
+					<% if !current_user.profile_picture %>
+					<img src="deault.png">
+					<% else %>
+					<img src="/uploads/<%= current_user.profile_picture %>">
+					<% end %>
+					<%= current_user.email.slice(0..-11) %>
+			</div>
+			<%= link_to "What is your Question?" , new_question_path(@question) , :class=> 'link' %>
+		</div>
+		
+			<div id="questions">
 
-</div>
+				 <% Question.all.each do |question|  %>
 
-</section>
+				 <%= render 'question', question: question %>
+	
+				 <% end %>
+
+			 </div>
+		
+
+	</section>
+	<div class="right"></div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
