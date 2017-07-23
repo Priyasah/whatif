@@ -43,6 +43,9 @@
 				<% end %>
 		</div>
 		<%= answer.content %>
+		<br>
+		<a href="">upvote</a>
+		<a href="">Downvote</a>
 		<% end %>
 
 		</div>
@@ -52,7 +55,15 @@
 
 	<div class="bottom">
 		<div class="actions">
+		<% if answers.any? %>
+
+		<% else %>
+		
 		<%= link_to "Answer", {:controller => "answers", :action => "new", :question_id => question.id }%>
+		<a href="">pass</a>
+		<a href="">follow</a>
+		<a href="">downvote</a>
+		<% end %>
 		</div>
 	</div>
 

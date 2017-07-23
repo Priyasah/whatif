@@ -106,8 +106,9 @@ main
             margin-right:350px;
             div.create_question
             {
-                    border:1px solid grey;
+                    border:1px solid #efefef;
                     padding:5px;
+                    background-color: #ffffff;
                     div.profile_pic
                     {
                             img{
@@ -130,8 +131,10 @@ main
             {
                 div.question
                 {
+                    background-color: #ffffff;
                     margin-top:5px;
-                    border:1px solid grey;
+                    border:1px solid #efefef;
+                    padding:10px;
                     div.top
                     {
                         div.userDetail
