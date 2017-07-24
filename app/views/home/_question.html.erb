@@ -44,9 +44,9 @@
 		</div>
 		<%= answer.content %>
 		<br>
-		<%= link_to "Upvote", url_for(:controller => "votes", :action => "create", :answer_id => answer.id , :vote_type => 1), method: :post %><span class="vote_count">
+		<%= link_to "Upvote", url_for(:controller => "votes", :action => "toggle_vote", :answer_id => answer.id , :vote_type => 1), method: :post %><span class="vote_count">
 		<%= Vote.all.where(:answer_id => answer.id).where(:vote_type => 1).length %></span>
-		<%= link_to "Downvote", url_for(:controller => "votes", :action => "create", :answer_id => answer.id , :vote_type => 0), method: :post %>
+		<%= link_to "Downvote", url_for(:controller => "votes", :action => "toggle_vote", :answer_id => answer.id , :vote_type => 0), method: :post %>
 		<span class="vote_count">
 		<%= Vote.all.where(:answer_id => answer.id).where(:vote_type => 0).length %></span>
 		<% end %>

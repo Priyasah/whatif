@@ -68,6 +68,27 @@ class VotesController < ApplicationController
     end
   end
 
+
+def toggle_vote
+
+    @answer = Answer.find(params[:answer_id])
+    vote_type= params[:vote_type].to_i
+    if(vote_type == 1)
+
+    vote = current_user.votes.where(:answer_id => @answer.id).where(:vote_type => 1).first
+
+  else
+     vote = current_user.votes.where(:answer_id => @answer.id).where(:vote_type => 0).first
+   end
+    if vote
+      vote.destroy!
+    else
+      Vote.create(answer_id: @answer.id , vote_type: vote_type,user_id: current_user.id)
+     end
+      return redirect_to controller: :home, action: :index
+     
+    end
+   
    
 
    

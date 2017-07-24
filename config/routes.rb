@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :answers
   resources :questions
   devise_for :users
-
-
+  get '/index' => 'home#index'
+  post '/toggle_vote' => 'votes#toggle_vote'
   get '/profile' => 'home#profile'
   post '/upload_image' => 'home#upload_image'
  root to: "home#index"
