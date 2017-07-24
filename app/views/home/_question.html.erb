@@ -8,7 +8,7 @@
 				<% if question.user.profile_picture %>
 				<img src="/uploads/<%=question.user.profile_picture %>">
 				<% else %>
-				<img src="default.png">
+				<%= image_tag 'default.png' %>
 				<% end %>
 				<% if question.is_anonymous %>
 					anonymous
@@ -34,7 +34,7 @@
 				<% if answer.user.profile_picture %>
 				<img src="/uploads/<%=question.user.profile_picture %>">
 				<% else %>
-				<img src="default.png">
+				<%= image_tag 'default.png' %>
 				<% end %>
 				<% if answer.is_anonymous %>
 					anonymous
@@ -44,8 +44,11 @@
 		</div>
 		<%= answer.content %>
 		<br>
-		<a href="">upvote</a>
-		<a href="">Downvote</a>
+		<%= link_to "Upvote", url_for(:controller => "votes", :action => "create", :answer_id => answer.id , :vote_type => 1), method: :post %><span class="vote_count">
+		<%= Vote.all.where(:answer_id => answer.id).where(:vote_type => 1).length %></span>
+		<%= link_to "Downvote", url_for(:controller => "votes", :action => "create", :answer_id => answer.id , :vote_type => 0), method: :post %>
+		<span class="vote_count">
+		<%= Vote.all.where(:answer_id => answer.id).where(:vote_type => 0).length %></span>
 		<% end %>
 
 		</div>
@@ -62,7 +65,7 @@
 		<%= link_to "Answer", {:controller => "answers", :action => "new", :question_id => question.id }%>
 		<a href="">pass</a>
 		<a href="">follow</a>
-		<a href="">downvote</a>
+		
 		<% end %>
 		</div>
 	</div>

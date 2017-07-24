@@ -53,7 +53,7 @@
 		<div  class="create_question">
 			<div class="profile_pic">
 					<% if !current_user.profile_picture %>
-					<img src="deault.png">
+					<%= image_tag 'default.png' %>
 					<% else %>
 					<img src="/uploads/<%= current_user.profile_picture %>">
 					<% end %>
